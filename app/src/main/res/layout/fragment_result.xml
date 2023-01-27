@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,36 +16,49 @@
             android:id="@+id/textWinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.05"
+            android:layout_weight="0.15"
+            android:gravity="center"
+            android:textSize="24dp"
             android:text="@string/win_msg" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:background="@color/purple_500"/>
 
         <TextView
             android:id="@+id/textCatches"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.05"
+            android:layout_marginBottom="6dp"
+            android:layout_marginLeft="8dp"
+            android:gravity="left|center_vertical"
+            android:textSize="18dp"
             android:text="@string/catches" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.85"
+            android:layout_weight="0.75"
+            android:layout_marginLeft="8dp"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/textCatch1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="User1 caught User3" />
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/textCatch2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="User1 caught User4" />
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/textCatch3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="User3 caught User2" />
@@ -49,9 +66,10 @@
 
         <Button
             android:id="@+id/buttonFinish"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.05"
+            android:layout_width="128dp"
+            android:layout_height="64dp"
+
+            android:layout_gravity="center"
             android:text="@string/finish" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

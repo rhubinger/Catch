@@ -30,23 +30,35 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.4"
+            android:layout_marginTop="8dp"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textMock2"
+                android:id="@+id/textCatch1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:textColor="#B80000"
-                android:text=" Replace with Userlist"/>
+                android:layout_height="wrap_content"
+                android:text="User1 caught User3" />
 
+            <TextView
+                android:id="@+id/textCatch2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="User1 caught User4" />
+
+            <TextView
+                android:id="@+id/textCatch3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="User3 caught User2" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.1"
-            android:background="@color/purple_200"
+            android:background="@color/purple_500"
             android:orientation="horizontal">
 
             <TextView
@@ -55,6 +67,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.6"
                 android:gravity="center"
+                android:textSize="24dp"
+                android:textColor="@color/white"
                 android:text="@string/time_left" />
 
             <TextView
@@ -63,6 +77,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.4"
                 android:gravity="center"
+                android:textSize="24dp"
+                android:textColor="@color/white"
                 android:text="@string/time_mock" />
 
         </LinearLayout>
@@ -72,7 +88,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.15"
-            android:background="#B80000"
+            android:background="#AC3B3B"
             android:orientation="vertical">
 
             <TextView
@@ -95,14 +111,16 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.5"
-                    android:text="Move On to Results" />
+                    android:layout_margin="5dp"
+                    android:text="Move On to Results"/>
 
                 <Button
                     android:id="@+id/buttonCatchPlayer"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.5"
-                    android:text="Catch" />
+                    android:layout_margin="5dp"
+                    android:text="Catch"/>
             </LinearLayout>
         </LinearLayout>
 

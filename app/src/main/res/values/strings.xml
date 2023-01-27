@@ -11,13 +11,12 @@
     <string name="start_game">Start Game</string>
     <string name="start_new_game">Start new Game</string>
     <string name="join_game">Join Game</string>
-    <string name="game_length_prompt">Set the length of the game</string>
+    <string name="game_length_prompt">Select Game Length:</string>
     <string name="create_game">Create Game</string>
     <string name="wait_msg">Waiting for game #1234 to start</string>
     <string name="leave_game">Leave Game</string>
-    <string name="join_game_prompt">Enter the game ID:</string>
+    <string name="game_id_prompt">Game ID:</string>
     <string name="user_id_prompt">Username:</string>
-    <string name="password_hint">********</string>
     <string name="password_prompt">Password:</string>
     <string name="submit">submit</string>
     <string name="hint_user_id">\@Alan_Turing</string>
@@ -31,4 +30,6 @@
     <string name="catch_player_fragment_label">Catch Player</string>
     <string name="result_fragment_label">Result</string>
     <string name="login_fragment_label">Login</string>
+    <string name="users">Users:</string>
+    <string name="menu">Menu</string>
 </resources>
