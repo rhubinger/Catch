@@ -1,4 +1,4 @@
-package com.example.acatch.view
+package com.macc.catchgame.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,15 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.example.acatch.R
-import com.example.acatch.databinding.FragmentAwaitStartBinding
+import com.macc.catchgame.R
+import com.macc.catchgame.databinding.FragmentLoginBinding
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
-class AwaitStartFragment : Fragment() {
+class LoginFragment : Fragment() {
 
-    private var _binding: FragmentAwaitStartBinding? = null
+    private var _binding: FragmentLoginBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -25,7 +25,7 @@ class AwaitStartFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentAwaitStartBinding.inflate(inflater, container, false)
+        _binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
 
     }
@@ -33,8 +33,8 @@ class AwaitStartFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonLeaveGame.setOnClickListener {
-            findNavController().navigate(R.id.action_AwaitStartFragment_to_MainMenuFragment)
+        binding.buttonSubmit.setOnClickListener {
+            findNavController().navigate(R.id.action_LoginFragment_to_MainMenuFragment)
         }
     }
 

@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.acatch'
+    namespace 'com.macc.catchgame'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.acatch"
+        applicationId "com.macc.catchgame"
         minSdk 30
         targetSdk 33
         versionCode 1

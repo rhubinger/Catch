@@ -1,11 +1,9 @@
-package com.example.acatch.view
+package com.macc.catchgame.view
 
 import android.os.Bundle
-import android.widget.TimePicker
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.ui.AppBarConfiguration
-import com.example.acatch.R
-import com.example.acatch.databinding.ActivityMainBinding
+import com.macc.catchgame.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
