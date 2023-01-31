@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "33458398703",
+    "project_id": "macc-catch-game",
+    "storage_bucket": "macc-catch-game.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:33458398703:android:00fbe1d06415865739c21a",
+        "android_client_info": {
+          "package_name": "com.macc.catchgame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "33458398703-ggel8524gailb958jq57qicj2gd66ud8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvemIKhddrlrxeU_pQQboyTXrTcZTkuEU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "33458398703-ggel8524gailb958jq57qicj2gd66ud8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

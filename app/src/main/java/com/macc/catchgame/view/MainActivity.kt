@@ -1,9 +1,13 @@
 package com.macc.catchgame.view
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.macc.catchgame.R
+import com.google.android.gms.maps.SupportMapFragment
 import androidx.navigation.ui.AppBarConfiguration
 import com.macc.catchgame.databinding.ActivityMainBinding
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,3 +21,4 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
     }
 }
+

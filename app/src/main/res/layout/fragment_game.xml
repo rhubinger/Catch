@@ -10,21 +10,12 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <LinearLayout
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.6"
-            android:orientation="vertical">
+            android:id="@+id/map_frame"/>
 
-            <TextView
-                android:id="@+id/textMock1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:textColor="#B80000"
-                android:text="Replace with Map" />
-
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -107,20 +98,20 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/buttonMoveOnToResults"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.5"
-                    android:layout_margin="5dp"
-                    android:text="Move On to Results"/>
-
-                <Button
                     android:id="@+id/buttonCatchPlayer"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.5"
                     android:layout_margin="5dp"
                     android:text="Catch"/>
+
+                <Button
+                    android:id="@+id/buttonMoveOnToResults"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:layout_margin="5dp"
+                    android:text="Move On to Results"/>
             </LinearLayout>
         </LinearLayout>
 
