@@ -51,31 +51,12 @@
             android:textSize="18dp"
             android:text="@string/users" />
 
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewStartGame"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.75"
-            android:layout_marginLeft="8dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textCatch1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="User1 caught User3" />
-
-            <TextView
-                android:id="@+id/textCatch2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="User1 caught User4" />
-
-            <TextView
-                android:id="@+id/textCatch3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="User3 caught User2" />
-        </LinearLayout>
+            android:layout_height="0dp"
+            android:layout_weight="0.7"
+            android:layout_marginLeft="8dp"/>
 
         <Button
             android:id="@+id/buttonStartGame"

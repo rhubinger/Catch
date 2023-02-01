@@ -14,36 +14,16 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.6"
-            android:id="@+id/map_frame"/>
+            android:id="@+id/map_frame" />
 
-
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewGame"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.4"
             android:layout_marginTop="8dp"
             android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textCatch1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="User1 caught User3" />
-
-            <TextView
-                android:id="@+id/textCatch2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="User1 caught User4" />
-
-            <TextView
-                android:id="@+id/textCatch3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="User3 caught User2" />
-        </LinearLayout>
+            android:paddingRight="@dimen/activity_horizontal_margin"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -78,41 +58,23 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.15"
+            android:layout_weight="0.1"
             android:background="#AC3B3B"
-            android:orientation="vertical">
-
+            android:orientation="horizontal">
             <TextView
                 android:id="@+id/textRemoveWarning"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="0.3"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:text="Remove from app for final release!" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.7"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/buttonCatchPlayer"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.5"
-                    android:layout_margin="5dp"
-                    android:text="Catch"/>
-
-                <Button
-                    android:id="@+id/buttonMoveOnToResults"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.5"
-                    android:layout_margin="5dp"
-                    android:text="Move On to Results"/>
-            </LinearLayout>
+            <Button
+                android:id="@+id/buttonMoveOnToResults"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Move On to Results"/>
         </LinearLayout>
 
     </LinearLayout>

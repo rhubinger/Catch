@@ -1,12 +1,13 @@
 package com.macc.catchgame.view
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
@@ -14,6 +15,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.macc.catchgame.R
 import com.macc.catchgame.databinding.FragmentGameBinding
+import com.macc.catchgame.control.GameUserAdapter
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -25,6 +27,9 @@ class GameFragment : Fragment(), OnMapReadyCallback {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+
+    private val itemsList = ArrayList<String>()
+    private lateinit var userAdapter: GameUserAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,13 +48,25 @@ class GameFragment : Fragment(), OnMapReadyCallback {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // TODO remove from final version
-        binding.buttonCatchPlayer.setOnClickListener {
-            findNavController().navigate(R.id.action_GameFragment_to_CatchPlayerFragment)
-        }
         binding.buttonMoveOnToResults.setOnClickListener {
             findNavController().navigate(R.id.action_GameFragment_to_ResultFragment)
         }
+
+        val recyclerView: RecyclerView = view.findViewById(R.id.recyclerViewGame)
+        userAdapter = GameUserAdapter(itemsList)
+        val layoutManager = LinearLayoutManager(requireContext().applicationContext)
+        recyclerView.layoutManager = layoutManager
+        recyclerView.adapter = userAdapter
+        prepareItems()
+    }
+
+    private fun prepareItems() {
+        itemsList.add("Alan Turing")
+        itemsList.add("Konrad Zuse")
+        itemsList.add("John Backus")
+        itemsList.add("Ada Lovelace")
+        itemsList.add("Edsger Dijkstra")
+        userAdapter.notifyDataSetChanged()
     }
 
     override fun onDestroyView() {
@@ -62,6 +79,12 @@ class GameFragment : Fragment(), OnMapReadyCallback {
         googleMap.addMarker(
             MarkerOptions()
                 .position(LatLng(0.0, 0.0))
+                .title("Marker")
+        )
+
+        googleMap.addMarker(
+            MarkerOptions()
+                .position(LatLng(49.226861, 10.725891))
                 .title("Marker")
         )
     }
