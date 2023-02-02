@@ -32,4 +32,8 @@
     <string name="login_fragment_label">Login</string>
     <string name="users">Users:</string>
     <string name="menu">Menu</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="backToLogin">Back to Login</string>
+    <string name="logOut">Log out</string>
 </resources>

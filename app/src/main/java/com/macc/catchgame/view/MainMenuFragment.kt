@@ -1,11 +1,13 @@
 package com.macc.catchgame.view
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.auth.FirebaseAuth
 import com.macc.catchgame.R
 import com.macc.catchgame.databinding.FragmentMainMenuBinding
 
@@ -39,6 +41,15 @@ class MainMenuFragment : Fragment() {
 
         binding.buttonJoinGame.setOnClickListener {
             findNavController().navigate(R.id.action_MainMenuFragment_to_JoinGameFragment)
+        }
+
+        binding.textViewLogOut.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+
+            var intent = Intent(activity, LoginActivity::class.java)
+            startActivity(intent)
+            requireActivity().overridePendingTransition(0, 0)
+            requireActivity().finish()
         }
     }
 

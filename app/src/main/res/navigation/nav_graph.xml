@@ -3,18 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/LoginFragment">
-
-    <fragment
-        android:id="@+id/LoginFragment"
-        android:name="com.macc.catchgame.view.LoginFragment"
-        android:label="@string/login_fragment_label"
-        tools:layout="@layout/fragment_login">
-
-        <action
-            android:id="@+id/action_LoginFragment_to_MainMenuFragment"
-            app:destination="@id/MainMenuFragment" />
-    </fragment>
+    app:startDestination="@id/MainMenuFragment">
 
     <fragment
         android:id="@+id/MainMenuFragment"
@@ -84,22 +73,8 @@
         tools:layout="@layout/fragment_game">
 
         <action
-            android:id="@+id/action_GameFragment_to_CatchPlayerFragment"
-            app:destination="@id/CatchPlayerFragment" />
-        <action
             android:id="@+id/action_GameFragment_to_ResultFragment"
             app:destination="@id/ResultFragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/CatchPlayerFragment"
-        android:name="com.macc.catchgame.view.CatchPlayerFragment"
-        android:label="@string/catch_player_fragment_label"
-        tools:layout="@layout/fragment_catch_player">
-
-        <action
-            android:id="@+id/action_CatchPlayerFragment_to_GameFragment"
-            app:destination="@id/GameFragment" />
     </fragment>
 
     <fragment

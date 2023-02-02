@@ -1,5 +1,6 @@
 package com.macc.catchgame.view
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,8 +15,8 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.macc.catchgame.R
-import com.macc.catchgame.databinding.FragmentGameBinding
 import com.macc.catchgame.control.GameUserAdapter
+import com.macc.catchgame.databinding.FragmentGameBinding
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -30,6 +31,7 @@ class GameFragment : Fragment(), OnMapReadyCallback {
 
     private val itemsList = ArrayList<String>()
     private lateinit var userAdapter: GameUserAdapter
+    private lateinit var mainActivity: MenuActivity
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -69,6 +71,11 @@ class GameFragment : Fragment(), OnMapReadyCallback {
         userAdapter.notifyDataSetChanged()
     }
 
+    override fun onAttach(activity: Activity) {
+        super.onAttach(activity)
+        mainActivity = activity as MenuActivity
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
@@ -78,14 +85,14 @@ class GameFragment : Fragment(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         googleMap.addMarker(
             MarkerOptions()
-                .position(LatLng(0.0, 0.0))
-                .title("Marker")
+                .position(LatLng(mainActivity.location.latitude, mainActivity.location.longitude))
+                .title("MyPosition")
         )
 
         googleMap.addMarker(
             MarkerOptions()
                 .position(LatLng(49.226861, 10.725891))
-                .title("Marker")
+                .title("Home")
         )
     }
 }

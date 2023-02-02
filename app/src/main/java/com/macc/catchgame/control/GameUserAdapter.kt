@@ -1,5 +1,6 @@
 package com.macc.catchgame.control
 
+import android.util.Log
 import com.macc.catchgame.R
 import android.view.LayoutInflater
 import android.view.View
@@ -29,7 +30,7 @@ internal class GameUserAdapter(private var itemsList: List<String>) :
         holder.itemTextView.text = item
         holder.buttonUserList.text = "Catch"
         holder.buttonUserList.setOnClickListener { v ->
-            v.findNavController().navigate(R.id.action_GameFragment_to_CatchPlayerFragment)
+            Log.d("MOCK", "A user got caught out by the catcher.")
         }
     }
 
