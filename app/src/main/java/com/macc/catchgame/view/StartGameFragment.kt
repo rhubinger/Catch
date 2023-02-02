@@ -1,5 +1,6 @@
 package com.macc.catchgame.view
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -39,7 +40,10 @@ class StartGameFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonStartGame.setOnClickListener {
-            findNavController().navigate(R.id.action_StartGameFragment_to_GameFragment)
+            var intent = Intent(activity, GameActivity::class.java)
+            startActivity(intent)
+            requireActivity().overridePendingTransition(0, 0)
+            requireActivity().finish()
         }
 
         val recyclerView: RecyclerView = view.findViewById(R.id.recyclerViewStartGame)

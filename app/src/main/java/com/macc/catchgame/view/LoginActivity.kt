@@ -29,6 +29,7 @@ class LoginActivity : AppCompatActivity() {
         if(currentUser != null){
             var intent = Intent(applicationContext, MenuActivity::class.java)
             startActivity(intent)
+            overridePendingTransition(0,0)
             finish()
         }
     }
