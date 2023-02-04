@@ -1,4 +1,4 @@
-package com.macc.catchgame.view
+package com.macc.catchgame.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,7 +12,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.macc.catchgame.R
-import com.macc.catchgame.control.StartGameUserAdapter
+import com.macc.catchgame.adapters.StartGameUserAdapter
 
 class StartGameActivity : AppCompatActivity() {
 
@@ -63,6 +63,11 @@ class StartGameActivity : AppCompatActivity() {
                 }
         }
 
+        userAdapter = StartGameUserAdapter(playerList, gameId)
+        val layoutManager = LinearLayoutManager(applicationContext)
+        recyclerView.layoutManager = layoutManager
+        recyclerView.adapter = userAdapter
+
         db.collection("games").document(gameId).
         addSnapshotListener { snapshot, e ->
             if (e != null) {
@@ -78,9 +83,5 @@ class StartGameActivity : AppCompatActivity() {
                 userAdapter.notifyDataSetChanged()
             }
         }
-        userAdapter = StartGameUserAdapter(playerList, gameId)
-        val layoutManager = LinearLayoutManager(applicationContext)
-        recyclerView.layoutManager = layoutManager
-        recyclerView.adapter = userAdapter
     }
 }

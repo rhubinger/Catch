@@ -1,11 +1,9 @@
-package com.macc.catchgame.view
+package com.macc.catchgame.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.TextUtils
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
@@ -63,7 +61,7 @@ class AwaitStartActivity : AppCompatActivity() {
 
             if (snapshot != null && snapshot.exists()) {
                 val state = snapshot.data?.get("state").toString()
-                if(state.equals("started")){
+                if(state == "started"){
                     var intent = Intent(applicationContext, GameActivity::class.java)
                     intent.putExtra("gameId", gameId)
                     startActivity(intent)

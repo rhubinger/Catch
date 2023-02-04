@@ -25,7 +25,7 @@
     <string name="result">Result:</string>
     <string name="win_msg">Catchers Won!</string>
     <string name="time_left">Time left:</string>
-    <string name="time_mock">00:00</string>
+    <string name="time_mock">0:00:00</string>
     <string name="catches">Catches:</string>
     <string name="game_fragment_label">Game</string>
     <string name="catch_player_fragment_label">Catch Player</string>

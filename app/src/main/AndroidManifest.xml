@@ -23,7 +23,7 @@
             android:value="${MAPS_API_KEY}" />
 
         <activity
-            android:name=".view.LoginActivity"
+            android:name=".activities.LoginActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
@@ -39,7 +39,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.RegisterActivity"
+            android:name=".activities.RegisterActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Catch.NoActionBar">
@@ -48,7 +48,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".view.StartGameActivity"
+            android:name=".activities.StartGameActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Catch.NoActionBar">
@@ -57,7 +57,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".view.MenuActivity"
+            android:name=".activities.MenuActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Catch.NoActionBar">
@@ -66,7 +66,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".view.JoinGameActivity"
+            android:name=".activities.JoinGameActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Catch.NoActionBar">
@@ -75,7 +75,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".view.CreateGameActivity"
+            android:name=".activities.CreateGameActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Catch.NoActionBar">
@@ -84,7 +84,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".view.AwaitStartActivity"
+            android:name=".activities.AwaitStartActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Catch.NoActionBar">
@@ -93,15 +93,19 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".view.GameActivity"
-            android:exported="false">
+            android:name=".activities.GameActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Catch.NoActionBar">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".view.ResultActivity"
-            android:exported="false">
+            android:name=".activities.ResultActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Catch.NoActionBar">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

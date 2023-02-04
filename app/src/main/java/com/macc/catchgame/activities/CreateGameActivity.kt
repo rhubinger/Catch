@@ -1,4 +1,4 @@
-package com.macc.catchgame.view
+package com.macc.catchgame.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -34,11 +34,15 @@ class CreateGameActivity : AppCompatActivity() {
         timePicker.minute = 0
 
         buttonStartGame.setOnClickListener {
-            var gameLength : Int = timePicker.minute + 60 * timePicker.hour
+            var gameLength : Int = (timePicker.minute + 60 * timePicker.hour) * 60
             val game = hashMapOf(
                 "length" to gameLength,
                 "state" to "created",
                 "players" to arrayListOf(auth.currentUser?.email.toString()),
+                "catches" to arrayListOf(hashMapOf(
+                    "catcher" to "starter",
+                    "caught" to auth.currentUser?.email.toString(),
+                )),
             )
 
 

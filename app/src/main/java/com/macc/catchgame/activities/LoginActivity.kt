@@ -1,4 +1,4 @@
-package com.macc.catchgame.view
+package com.macc.catchgame.activities
 
 import android.content.ContentValues.TAG
 import android.content.Intent
@@ -14,12 +14,11 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.macc.catchgame.R
 
-class RegisterActivity : AppCompatActivity() {
-
+class LoginActivity : AppCompatActivity() {
     private lateinit var editTextEmail : EditText
     private lateinit var editTextPassword: EditText
-    private lateinit var registerBtn : Button
-    private lateinit var toLogin : TextView
+    private lateinit var loginBtn : Button
+    private lateinit var toRegistration : TextView
 
     private lateinit var auth: FirebaseAuth
 
@@ -30,23 +29,23 @@ class RegisterActivity : AppCompatActivity() {
         if(currentUser != null){
             var intent = Intent(applicationContext, MenuActivity::class.java)
             startActivity(intent)
-            overridePendingTransition(0, 0)
+            overridePendingTransition(0,0)
             finish()
         }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register)
+        setContentView(R.layout.activity_login)
 
         editTextEmail = findViewById(R.id.username)
         editTextPassword = findViewById(R.id.password)
-        registerBtn = findViewById(R.id.buttonRegister)
-        toLogin = findViewById(R.id.toLogin)
+        loginBtn = findViewById(R.id.buttonLogin)
+        toRegistration = findViewById(R.id.toRegistration)
 
         auth = FirebaseAuth.getInstance()
 
-        registerBtn.setOnClickListener { view : View ->
+        loginBtn.setOnClickListener { view : View ->
             var email = editTextEmail.text.toString()
             var password = editTextPassword.text.toString()
 
@@ -59,31 +58,28 @@ class RegisterActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            auth.createUserWithEmailAndPassword(email, password)
+            auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-                        // Sign in success, update UI with the signed-in user's information
-                        Log.d(TAG, "createUserWithEmail:success")
-                        Toast.makeText(baseContext, "Account created",
-                            Toast.LENGTH_SHORT).show()
-                        var intent = Intent(applicationContext, LoginActivity::class.java)
+                        Log.d(TAG, "signInWithEmail:success")
+                        var intent = Intent(applicationContext, MenuActivity::class.java)
                         startActivity(intent)
                         overridePendingTransition(0, 0)
                         finish()
                     } else {
-                        // If sign in fails, display a message to the user.
-                        Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                        Toast.makeText(baseContext, "Account creation failed.",
+                        Log.w(TAG, "signInWithEmail:failure", task.exception)
+                        Toast.makeText(baseContext, "Authentication failed.",
                             Toast.LENGTH_SHORT).show()
                     }
                 }
         }
 
-        toLogin.setOnClickListener {
-            var intent = Intent(applicationContext, LoginActivity::class.java)
+        toRegistration.setOnClickListener {
+            var intent = Intent(applicationContext, RegisterActivity::class.java)
             startActivity(intent)
             overridePendingTransition(0, 0)
             finish()
         }
     }
+
 }
