@@ -96,10 +96,6 @@ class GameActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), locationPermissionCode)
         }
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5f, this)
-
-        fusedLocationClient.lastLocation.addOnSuccessListener { lastlocation : Location ->
-            this.location = lastlocation
-        }
     }
 
     override fun onLocationChanged(location: Location) {

@@ -25,7 +25,7 @@
         <activity
             android:name=".view.LoginActivity"
             android:exported="true"
-            android:label="@string/login"
+            android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Catch.NoActionBar">
             <meta-data
@@ -41,7 +41,6 @@
         <activity
             android:name=".view.RegisterActivity"
             android:exported="false"
-            android:label="@string/register"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Catch.NoActionBar">
             <meta-data
