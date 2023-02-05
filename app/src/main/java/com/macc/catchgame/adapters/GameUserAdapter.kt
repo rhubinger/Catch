@@ -1,6 +1,8 @@
 package com.macc.catchgame.adapters
 
 import android.content.Intent
+import android.location.Location
+import android.util.Log
 import com.macc.catchgame.R
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.maps.android.SphericalUtil;
+import com.google.android.gms.maps.model.LatLng
 import com.macc.catchgame.activities.GameActivity
 import com.macc.catchgame.activities.MenuActivity
 
@@ -60,6 +64,36 @@ internal class GameUserAdapter(private var itemsList: List<String>, private var 
                         holder.buttonCatchPlayer.isEnabled = true
                         holder.buttonCatchPlayer.visibility = View.VISIBLE
                     }
+                }
+            }
+            db.collection("locations").document(username).
+            addSnapshotListener { snapshot, e ->
+                if (e != null) {
+                    return@addSnapshotListener
+                }
+                if (snapshot != null && snapshot.exists()) {
+                    val latitude = snapshot.data?.get("latitude") as Double
+                    val longitude = snapshot.data?.get("longitude") as Double
+                    val locationTarget = LatLng(latitude, longitude)
+
+                    db.collection("locations").document(auth.currentUser?.email.toString()).get()
+                        .addOnSuccessListener { document ->
+                            if (document != null) {
+                                val latitude = document.data?.get("latitude") as Double
+                                val longitude = document.data?.get("longitude") as Double
+                                var locationUser = LatLng(latitude, longitude)
+
+                                val distance = SphericalUtil.computeDistanceBetween(locationUser, locationTarget)
+                                Log.d("Distance", "Distance: $distance")
+                                if( distance > 100){
+                                    holder.buttonCatchPlayer.isEnabled = false
+                                    holder.buttonCatchPlayer.visibility = View.INVISIBLE
+                                } else if(userIsCatcher){
+                                    holder.buttonCatchPlayer.isEnabled = true
+                                    holder.buttonCatchPlayer.visibility = View.VISIBLE
+                                }
+                            }
+                        }
                 }
             }
         }

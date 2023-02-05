@@ -45,8 +45,6 @@ class CreateGameActivity : AppCompatActivity() {
                     "caught" to auth.currentUser?.email.toString(),
                 )),
             )
-
-
             var gameId = Random.nextInt(100000,999999).toString()
 
             db.collection("games").document(gameId).set(game).addOnSuccessListener {
