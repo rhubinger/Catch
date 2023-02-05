@@ -13,13 +13,13 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textWinner"
+            android:id="@+id/textViewResult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.15"
             android:gravity="center"
             android:textSize="24dp"
-            android:text="@string/win_msg" />
+            android:text="@string/result_msg" />
 
         <View
             android:layout_width="match_parent"

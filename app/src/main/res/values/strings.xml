@@ -23,7 +23,9 @@
     <string name="hint_user_id">\@Alan_Turing</string>
     <string name="finish">Finish</string>
     <string name="result">Result:</string>
+    <string name="result_msg">Game result!</string>
     <string name="win_msg">Catchers Won!</string>
+    <string name="lose_msg">Catchers Lost!</string>
     <string name="time_left">Time left:</string>
     <string name="time_mock">0:00:00</string>
     <string name="catches">Catches:</string>

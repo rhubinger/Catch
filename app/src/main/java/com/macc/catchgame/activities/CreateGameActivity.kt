@@ -39,6 +39,7 @@ class CreateGameActivity : AppCompatActivity() {
                 "length" to gameLength,
                 "state" to "created",
                 "players" to arrayListOf(auth.currentUser?.email.toString()),
+                "catchers" to arrayListOf(auth.currentUser?.email.toString()),
                 "catches" to arrayListOf(hashMapOf(
                     "catcher" to "starter",
                     "caught" to auth.currentUser?.email.toString(),

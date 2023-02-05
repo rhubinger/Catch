@@ -127,6 +127,18 @@ class GameActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener {
             }
 
             if (snapshot != null && snapshot.exists()) {
+                val catchers = snapshot.data?.get("catchers") as ArrayList<String>
+                val players = snapshot.data?.get("players") as ArrayList<String>
+                if(catchers.size == players.size){
+                    val game = hashMapOf(
+                        "state" to "finished",
+                    )
+                    db.collection("games").document(gameId).set(game, SetOptions.merge())
+                        .addOnFailureListener {
+                            Toast.makeText(applicationContext, "Failed to end game", Toast.LENGTH_SHORT).show()
+                        }
+                }
+
                 val state = snapshot.data?.get("state").toString()
                 if(state == "finished"){
                     var intent = Intent(applicationContext, ResultActivity::class.java)
