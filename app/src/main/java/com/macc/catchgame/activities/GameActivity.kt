@@ -29,6 +29,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -45,6 +46,7 @@ class GameActivity : AppCompatActivity(), OnMapReadyCallback{
 
     private lateinit var mapFragment: SupportMapFragment
     private lateinit var googleMap: GoogleMap
+    private var markerList = HashMap<String, Marker?>()
 
     private var catcherList = ArrayList<String>()
     private val playerList = ArrayList<String>()
@@ -178,24 +180,29 @@ class GameActivity : AppCompatActivity(), OnMapReadyCallback{
                         doc.data?.get("longitude") as Double,
                     )
                     if(doc.id != auth.currentUser?.email.toString()) {
+                        if(markerList.containsKey(doc.id)){
+                            markerList[doc.id]?.remove()
+                        }
                         if (catcherList.contains(doc.id)) {
-                            googleMap.addMarker(
+                            val marker = googleMap.addMarker(
                                 MarkerOptions().position(location).title("${doc.id}'s location")
                             )
-                                ?.setIcon(
-                                    BitmapDescriptorFactory.defaultMarker(
-                                        BitmapDescriptorFactory.HUE_RED
-                                    )
+                            marker?.setIcon(
+                                BitmapDescriptorFactory.defaultMarker(
+                                    BitmapDescriptorFactory.HUE_AZURE
                                 )
+                            )
+                            markerList[doc.id] = marker
                         } else {
-                            googleMap.addMarker(
+                            val marker = googleMap.addMarker(
                                 MarkerOptions().position(location).title("${doc.id}'s location")
                             )
-                                ?.setIcon(
-                                    BitmapDescriptorFactory.defaultMarker(
-                                        BitmapDescriptorFactory.HUE_AZURE
-                                    )
+                            marker?.setIcon(
+                                BitmapDescriptorFactory.defaultMarker(
+                                    BitmapDescriptorFactory.HUE_AZURE
                                 )
+                            )
+                            markerList[doc.id] = marker
                         }
                     }
                 }
@@ -224,8 +231,9 @@ class GameActivity : AppCompatActivity(), OnMapReadyCallback{
             }else{
                 Log.d("MOCK", "Position: Lat: ${location.latitude}, Lng: ${location.longitude}")
                 this.location = LatLng(location.latitude, location.longitude)
-                googleMap.addMarker(MarkerOptions().position(this.location).title("Your Location"))
-                    ?.setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET))
+                val marker = googleMap.addMarker(MarkerOptions().position(this.location).title("Your Location"))
+                marker?.setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET))
+                markerList[auth.currentUser?.email.toString()] = marker
                 googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(this.location, 12f))
                 val location = hashMapOf(
                     "latitude" to location.latitude,
